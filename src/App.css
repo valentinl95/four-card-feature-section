@@ -81,9 +81,15 @@ body {
     position: relative;
     width: 350px;
     min-height: 250px;
-    box-shadow: 5px 10px 15px 0px #aaaaff20;
+    box-shadow: 10px 10px 15px 0px #aaaaff20;
     max-width: 83vw;
     padding-bottom: min(90px, 21vw);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.container .card_grid .card:hover {
+    box-shadow: 10px 35px 20px 3px #aaaaff50;
+    transform: translateY(-20px);
 }
 
 .container .card_grid .card_tb {
