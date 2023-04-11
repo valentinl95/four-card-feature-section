@@ -1,38 +1,157 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html, body, #root {
+    height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+    background-color: #fafafa;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#root {
+    display: flex;
 }
 
-.App-link {
-  color: #61dafb;
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    margin: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    width: min(500px, 80vw);
+    color: hsl(234, 12%, 34%);
+    text-align: center;
+}
+
+.container .header .intro {
+    font-size: min(32px, 6vw);
+    font-weight: 200;
+}
+
+.container .header .powered_by {
+    font-size: min(32px, 6vw);
+    font-weight: 600;
+}
+
+.container .header .description {
+    color: hsl(229, 6%, 66%);
+    font-size: min(14px, 2.4vw);
+    font-weight: 400;
+}
+
+.container .card_grid {
+    display: grid;
+    grid-template-areas: 
+      ". tb ."
+      "sv tb calc"
+      "sv karma calc"
+      ". karma .";
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.container .card_grid .card {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 350px;
+    min-height: 250px;
+    box-shadow: 5px 10px 15px 0px #aaaaff20;
+    max-width: 83vw;
+    padding-bottom: min(90px, 21vw);
+}
+
+.container .card_grid .card_tb {
+    grid-area: tb;
+}
+
+.container .card_grid .card_sv {
+    grid-area: sv;
+}
+
+.container .card_grid .card_calc {
+    grid-area: calc;
+}
+
+.container .card_grid .card_karma {
+    grid-area: karma;
+}
+
+@media only screen and (max-width: 1120px) {
+    .container .card_grid {
+        display: grid;
+        grid-template-areas:
+          "sv tb"
+          "karma calc";
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .container .card_grid {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .container .card_grid .card {
+        flex: 1;
+        min-height: 0px;
+    }
+}
+
+.container .card_grid .card .colored_line {
+    height: 4px;
+    width: 100%;
+    position: absolute;
+}
+
+.container .card_grid .card .card_title {
+    font-weight: 600;
+    font-size: 20px;
+    word-spacing: -1.5px;
+    color: hsl(234, 12%, 34%);
+    margin: 30px 0px 0px 30px;
+}
+
+.container .card_grid .card .card_text {
+    font-size: 13px;
+    letter-spacing: 0.1px;
+    line-height: 1.8;
+    color: hsl(229, 6%, 66%);
+    margin: 12px 50px 0px 30px;
+}
+
+.container .card_grid .card .card_pic {
+    height: min(64px, 15vw);
+    width: min(64px, 15vw);
+    right: 30px;
+    bottom: 30px;
+    position: absolute;
 }
